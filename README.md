@@ -72,11 +72,13 @@ def player_choice(board):
 
     board_spot = 0
     
-    while board_spot != space_check(board, board_spot):
-        
-        board_spot = int(input(f'Where would you like to place your marker(1-9)?'))
+    while board_spot not in range(1,10) or not space_check(board, board_spot):
     
-    clear_output()
+    #why doesn't this work? while board_spot != space_check(board, board_spot):
+        
+        board_spot = int(input(f'Where would you like to place your marker(1-9)? '))
+    
+    #clear_output()
         
     return board_spot
         
@@ -96,13 +98,14 @@ def replay():
     if play_again == 'Y':
         return True
     
-    elif play_again == 'N':Y
+    elif play_again == 'N':
         return False
         
         
 
 print('Welcome to Tic Tac Toe!')
 
+game_on = True
 
 while True:
     the_board = [' ']*10
